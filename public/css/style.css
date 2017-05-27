@@ -1,7 +1,25 @@
 body, html {
-	
+	background: url('../mochaGrunge.png');
 }
 
 .jumbotron {
+	background: url('../subtle_white_feathers.png');
+	border-bottom: solid #2e6da4 thick;
+}
+
+.jumbotron, .search-panel {
 	text-align: center;
+} 
+
+/*.panel {
+	border-color: #2e6da4;
+}*/
+
+.panel-title {
+	color: white;
+}
+
+.panel-default>.panel-heading {
+	background-color: #337ab7;
+	border-color: #2e6da4;
 }
