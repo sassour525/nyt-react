@@ -66,6 +66,7 @@ var Search = React.createClass({
 					topic={this.state.topic}
 					startYear={this.state.startYear}
 					endYear={this.state.endYear}
+					parentSetSaved={this.props.setSaved}
 				/>
 			</div>
 	    );

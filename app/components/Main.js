@@ -12,6 +12,10 @@ var Main = React.createClass({
 		return { savedArticles: [] };
 	},
 
+	setSavedArticles: function(articles) {
+		this.setState({ savedArticles: articles });
+	},
+
 	componentDidMount: function() {
 		// Get the latest history.
 		helpers.getSavedArticles().then(function(response) {
@@ -30,7 +34,7 @@ var Main = React.createClass({
 					<p>Search for articles of interest</p>
 				</div>
 				<div className="container">
-					<Search />
+					<Search setSaved={this.setSavedArticles}/>
 					<Saved articles={this.state.savedArticles} />
 				</div>
 			</div>

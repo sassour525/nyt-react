@@ -16,7 +16,7 @@ var Results = React.createClass({
 			console.log("Updated!");
 
 			helpers.getSavedArticles().then(function(response) {
-				this.setState({ savedArticles: response.data });
+				this.props.parentSetSaved(response.data);
 			}.bind(this));
 
 		}.bind(this));
@@ -43,7 +43,7 @@ var Results = React.createClass({
 						}.bind(this))}
 					</div>
 				</div>
-				
+
 			</div>
 		);
 	}

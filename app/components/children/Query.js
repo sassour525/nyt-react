@@ -25,7 +25,10 @@ var Query = React.createClass({
 	render: function() {
 		return (
 			<div className="query-container">
-				<Results articles={this.state.articleArray} />
+				<Results 
+					articles={this.state.articleArray}
+					parentSetSaved={this.props.parentSetSaved} 
+				/>
 			</div>
 		);
 	}
