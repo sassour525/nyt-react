@@ -9,19 +9,23 @@ var helpers = require("../utils/helpers");
 // Create the Saved component
 var Query = React.createClass({
 
+	//set initial state
 	getInitialState: function() {
 		return {
 			articleArray: []
 		};
 	},
 
+	//when the component updates, run the search query on NYT api
 	componentDidUpdate: function() {
+		//call our runQuery helper function to execute ajax call to NYT API
 		helpers.runQuery(this.props.topic, this.props.startYear, this.props.endYear).then(function(data) {
 			this.setState({ articleArray: data});
 			console.log(this.state.articleArray);
 		}.bind(this));
 	},
 
+	//render the component
 	render: function() {
 		return (
 			<div className="query-container">

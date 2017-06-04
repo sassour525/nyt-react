@@ -7,6 +7,7 @@ var Results = require('./Results.js');
 // Create the Search component
 var Search = React.createClass({
 
+	//set initial state
 	getInitialState: function() {
 		return {
 			topic: "",
@@ -15,6 +16,7 @@ var Search = React.createClass({
 		}
 	},
 
+	//function to handle form input changes
 	handleChange: function(key) {
         return function(e){
             var state = {};
@@ -23,13 +25,15 @@ var Search = React.createClass({
         }.bind(this);
 	},
 
+	//function to handle the submit of the form and gather user input
 	handleSubmit: function(event) {
 		event.preventDefault();
 
-		console.log(this.state.topic);
-		console.log(this.state.startYear);
-		console.log(this.state.endYear);
+		// console.log(this.state.topic);
+		// console.log(this.state.startYear);
+		// console.log(this.state.endYear);
 
+		//set the state based on input field values
 		this.setState({
 			topic: this.state.topic,
 			startYear: this.state.startYear,
@@ -37,9 +41,10 @@ var Search = React.createClass({
 		});
 	},
 
-  	render: function() {
-	    return (
-	    	<div className="search-container">
+	//render the component
+	render: function() {
+    return (
+    	<div className="search-container">
 				<div className="panel panel-default search-panel">
 					<div className="panel-heading">
 						<h3 className="panel-title">Search</h3>
@@ -69,8 +74,8 @@ var Search = React.createClass({
 					parentSetSaved={this.props.setSaved}
 				/>
 			</div>
-	    );
-  	}
+    );
+	}
 });
 
 // Export the component back for use in other files

@@ -8,24 +8,28 @@ var helpers = require("./utils/helpers");
 // Create the Main component
 var Main = React.createClass({
 
+	//set initial state
 	getInitialState: function() {
 		return { savedArticles: [] };
 	},
 
+	//function to update savedArticles value
 	setSavedArticles: function(articles) {
 		this.setState({ savedArticles: articles });
 	},
 
+	//when the component mounts get saved articles to display
 	componentDidMount: function() {
-		// Get the latest history.
+		// Get the latest saved articles.
 		helpers.getSavedArticles().then(function(response) {
-			console.log(response);
+
 			if (response !== this.state.savedArticles) {
 				this.setState({ savedArticles: response.data });
 			}
 		}.bind(this));
 	},
 
+	//render main component
 	render: function() {
 		return (
 			<div className="main-container">
@@ -34,7 +38,7 @@ var Main = React.createClass({
 					<p>Search for articles of interest</p>
 				</div>
 				<div className="container">
-					<Search setSaved={this.setSavedArticles}/>
+					<Search setSaved={this.setSavedArticles} />
 					<Saved articles={this.state.savedArticles} />
 				</div>
 			</div>

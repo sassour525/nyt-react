@@ -3,6 +3,8 @@ var React = require("react");
 
 // Create the Saved component
 var Saved = React.createClass({
+
+	//render the component
   render: function() {
     return (
     	<div className="saved-container">
@@ -25,8 +27,9 @@ var Saved = React.createClass({
 				</div>
 			</div>
 		</div>
-    );
+   );
   }
+
 });
 
 // Export the component back for use in other files

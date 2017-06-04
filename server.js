@@ -42,6 +42,7 @@ db.once("open", function() {
 });
 
 // Routes
+//Route to get saved articles
 app.get('/api/saved', function(req, res) {
 	Article.find({}).exec(function(err, doc) {
 		if (err) { 
@@ -52,6 +53,7 @@ app.get('/api/saved', function(req, res) {
 	});
 });
 
+//Route to post saved articles
 app.post('/api/saved', function(req, res) {
 	console.log(req.body.article);
 	Article.create({
@@ -67,10 +69,12 @@ app.post('/api/saved', function(req, res) {
 	});
 });
 
+//Route to delete saved articles
 app.delete('/api/saved', function(req, res) {
 
 });
 
+//Route to display main index.html page
 app.get('/', function(req, res) {
 	res.sendFile(__dirname + "/public/index.html");
 });

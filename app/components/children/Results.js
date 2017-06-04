@@ -7,14 +7,18 @@ var helpers = require("../utils/helpers");
 // Create the Saved component
 var Results = React.createClass({
 
-  	getInitialState: function() {
-    	return { savedArticles: [] };
-  	},
+	//set initial state
+	getInitialState: function() {
+  	return { savedArticles: [] };
+	},
 
+  	//function to post articles to the DB if they are saved
 	saveArticleToDb: function(event) {
+		//call postSavedArticles helper function to make an ajax call to the API
 		helpers.postSavedArticles(this.props.articles[event.target.value]).then(function() {
 			console.log("Updated!");
 
+			//once we have an article, run a get to display the newley added article
 			helpers.getSavedArticles().then(function(response) {
 				this.props.parentSetSaved(response.data);
 			}.bind(this));
@@ -22,6 +26,7 @@ var Results = React.createClass({
 		}.bind(this));
 	},
 
+	//render the component
 	render: function() {
 		return (
 			<div className="results-container">

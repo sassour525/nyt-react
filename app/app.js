@@ -9,10 +9,10 @@ var Saved = require("./components/children/Saved");
 var Search = require("./components/children/Search");
 
 ReactDOM.render(
-// Here we dump all of the components into a single main-container
-// Again, treat them like they are any other HTML elements.
-  <div className="main-container">
-    <Main />
-  </div>
-  , document.getElementById("app")
+	// Here we dump all of the components into a single main-container
+	// Again, treat them like they are any other HTML elements.
+  	<div className="main-container">
+    	<Main />
+  	</div>
+ 	, document.getElementById("app")
 );
