@@ -3,8 +3,7 @@ var express = require('express');
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 
-// Requiring our Note and Article models
-var Note = require("./models/Note.js");
+// Requiring Article models
 var Article = require("./models/Article.js");
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
@@ -13,17 +12,13 @@ mongoose.Promise = Promise;
 // Initialize Express
 var app = express();
 
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Make public a static dir
-app.use(express.static("public"));
-
-// Use express-handlebars
-var exphbs = require("express-handlebars");
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+app.use(express.static("./public"));
 
 // Database configuration with mongoose
 var databaseUri = 'mongodb://localhost/nytreact';
@@ -48,11 +43,28 @@ db.once("open", function() {
 
 // Routes
 app.get('/api/saved', function(req, res) {
-
+	Article.find({}).exec(function(err, doc) {
+		if (err) { 
+			console.log(err);
+		} else {
+			res.send(doc);
+		}
+	});
 });
 
 app.post('/api/saved', function(req, res) {
-
+	console.log(req.body.article);
+	Article.create({
+		title: req.body.article.title,
+		date: req.body.article.date,
+		url: req.body.article.turl,
+	}, function(err) {
+		if (err) {
+			console.log(err);
+		} else {
+			res.send("Saved Article");
+		}
+	});
 });
 
 app.delete('/api/saved', function(req, res) {
@@ -60,7 +72,7 @@ app.delete('/api/saved', function(req, res) {
 });
 
 app.get('/', function(req, res) {
-
+	res.sendFile(__dirname + "/public/index.html");
 });
 
 // Listen on port 3000
