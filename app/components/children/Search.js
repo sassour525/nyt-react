@@ -2,7 +2,7 @@
 var React = require("react");
 
 var Query = require('./Query.js');
-var Results = require('./Results.js');
+// var Results = require('./Results.js');
 
 // Create the Search component
 var Search = React.createClass({
@@ -71,7 +71,7 @@ var Search = React.createClass({
 					topic={this.state.topic}
 					startYear={this.state.startYear}
 					endYear={this.state.endYear}
-					parentSetSaved={this.props.setSaved}
+					parentSetSaved={this.props.parentSetSaved}
 				/>
 			</div>
     );

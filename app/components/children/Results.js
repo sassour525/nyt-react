@@ -12,7 +12,7 @@ var Results = React.createClass({
   	return { savedArticles: [] };
 	},
 
-  	//function to post articles to the DB if they are saved
+	//function to post articles to the DB if they are saved
 	saveArticleToDb: function(event) {
 		//call postSavedArticles helper function to make an ajax call to the API
 		helpers.postSavedArticles(this.props.articles[event.target.value]).then(function() {
@@ -48,7 +48,6 @@ var Results = React.createClass({
 						}.bind(this))}
 					</div>
 				</div>
-
 			</div>
 		);
 	}

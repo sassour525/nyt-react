@@ -55,7 +55,7 @@ app.get('/api/saved', function(req, res) {
 
 //Route to post saved articles
 app.post('/api/saved', function(req, res) {
-	console.log(req.body.article);
+	// console.log(req.body.article);
 	Article.create({
 		title: req.body.article.title,
 		date: req.body.article.date,
@@ -71,7 +71,16 @@ app.post('/api/saved', function(req, res) {
 
 //Route to delete saved articles
 app.delete('/api/saved', function(req, res) {
-
+	// console.log(req.body.article);
+	Article.remove({
+		_id: req.body.article._id
+	}, function(err) {
+		if (err) {
+			console.log(err);
+		} else {
+			res.send("Deleted Article");
+		}
+	});
 });
 
 //Route to display main index.html page

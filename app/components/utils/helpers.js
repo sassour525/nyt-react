@@ -51,11 +51,11 @@ var helper = {
     return axios.post("/api/saved", { article: article });
   },
 
-  // This function is used to delete an articles from being saved
-  // deleteSavedArticles: function(article) {
-  //   console.log(article);
-  //   return axios.delete("/api/saved", { article: article });
-  // }
+  //This function is used to delete an articles from being saved
+  deleteSavedArticle: function(article) {
+    console.log(article);
+    return axios.delete("/api/saved", { data: {article: article }});
+  }
 };
 
 // We export the API helper

@@ -38,8 +38,11 @@ var Main = React.createClass({
 					<p>Search for articles of interest</p>
 				</div>
 				<div className="container">
-					<Search setSaved={this.setSavedArticles} />
-					<Saved articles={this.state.savedArticles} />
+					<Search parentSetSaved={this.setSavedArticles} />
+					<Saved 
+						articles={this.state.savedArticles}
+						parentSetSaved={this.setSavedArticles} 
+					/>
 				</div>
 			</div>
 		);
