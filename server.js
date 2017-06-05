@@ -24,7 +24,7 @@ app.use(express.static("./public"));
 var databaseUri = 'mongodb://localhost/nytreact';
 
 if (process.env.MONGODB_URI) {
-    // mongoose.connect('mongodb://heroku_jqxz2z07:51a2i020qinenhcpk2hem1hicu@ds149481.mlab.com:49481/heroku_jqxz2z07');
+    mongoose.connect('mongodb://heroku_d0m4rl33:vvmr2kqo8vf30696nsl0h7t26t@ds031607.mlab.com:31607/heroku_d0m4rl33');
 } else {
     mongoose.connect(databaseUri);
 }
