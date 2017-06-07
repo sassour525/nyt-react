@@ -9,7 +9,7 @@ var Results = React.createClass({
 
 	//set initial state
 	getInitialState: function() {
-  	return { savedArticles: [] };
+  		return { savedArticles: [] };
 	},
 
 	//function to post articles to the DB if they are saved
