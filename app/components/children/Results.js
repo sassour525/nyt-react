@@ -40,7 +40,7 @@ var Results = React.createClass({
 									<p>{result.date}</p>
 									<a href={result.turl}>{result.turl}</a>
 									<br />
-									<button className="btn btn-primary" id="save-article-button" type="button" value={i} onClick={this.saveArticleToDb}>Save Article</button>
+									<button className="btn btn-success pull-right" id="save-article-button" type="button" value={i} onClick={this.saveArticleToDb}>Save Article</button>
 								</div>
 							);
 						}.bind(this))}

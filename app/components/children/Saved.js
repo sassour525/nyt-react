@@ -36,7 +36,7 @@ var Saved = React.createClass({
 								<p>{result.date}</p>
 								<a href={result.url}>{result.url}</a>
 								<br />
-								<button className="btn btn-primary" id="delete-article-button" type="button" value={i} onClick={this.deleteArticleFromDb}>Delete Article</button>
+								<button className="btn btn-danger pull-right" id="delete-article-button" type="button" value={i} onClick={this.deleteArticleFromDb}>Delete Article</button>
 							</div>
 						);
 					}.bind(this))}
