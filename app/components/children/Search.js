@@ -33,7 +33,12 @@ var Search = React.createClass({
 		event.preventDefault();
 
 		helpers.runQuery(this.state.topic, this.state.startYear, this.state.endYear).then(function(data) {
-			this.setState({ articleArray: data })
+			this.setState({ 
+				topic: "",
+				startYear: "",
+				endYear: "",
+				articleArray: data 
+			});
 		}.bind(this));
 	},
 
