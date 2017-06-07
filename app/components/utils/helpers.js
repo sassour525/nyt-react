@@ -22,7 +22,7 @@ var helper = {
       //If we get a result, return the result's
       if (returnedArticles) {
         //loop through returned array and build article objects
-        for (var i = 0; i < returnedArticles.length; i++) {
+        for (var i = 0; i < 5; i++) {
           var articleObject = {
              title: returnedArticles[i].headline.main,
              date: returnedArticles[i].pub_date,
