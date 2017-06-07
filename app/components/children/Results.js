@@ -16,13 +16,11 @@ var Results = React.createClass({
 	saveArticleToDb: function(event) {
 		//call postSavedArticles helper function to make an ajax call to the API
 		helpers.postSavedArticles(this.props.articles[event.target.value]).then(function() {
-			console.log("Updated!");
 
 			//once we have an article, run a get to display the newley added article
 			helpers.getSavedArticles().then(function(response) {
 				this.props.parentSetSaved(response.data);
 			}.bind(this));
-
 		}.bind(this));
 	},
 
@@ -32,7 +30,7 @@ var Results = React.createClass({
 			<div className="results-container">
 				<div className="panel panel-default">
 					<div className="panel-heading">
-						<h3 className="panel-title">Results</h3>
+						<h3 className="panel-title"><span className="glyphicon glyphicon-list"></span> Results</h3>
 					</div>
 					<div className="panel-body">
 						{this.props.articles.map(function(result, i) {

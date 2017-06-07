@@ -11,7 +11,6 @@ var Saved = React.createClass({
 	deleteArticleFromDb: function(event) {
 		//call postSavedArticles helper function to make an ajax call to the API
 		helpers.deleteSavedArticle(this.props.articles[event.target.value]).then(function() {
-			console.log("Deleted!");
 
 			//once we have an article, run a get to display the newley added article
 			helpers.getSavedArticles().then(function(response) {
@@ -27,7 +26,7 @@ var Saved = React.createClass({
     	<div className="saved-container">
 			<div className="panel panel-default">
 				<div className="panel-heading">
-					<h3 className="panel-title">Saved Articles</h3>
+					<h3 className="panel-title"><span className="glyphicon glyphicon-ok"></span> Saved Articles</h3>
 				</div>
 				<div className="panel-body">
 					{this.props.articles.map(function(result, i) {

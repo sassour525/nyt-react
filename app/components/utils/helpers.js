@@ -47,13 +47,11 @@ var helper = {
 
   // This function posts articles to the DB for the saved list
   postSavedArticles: function(article) {
-    console.log(article);
     return axios.post("/api/saved", { article: article });
   },
 
   //This function is used to delete an articles from being saved
   deleteSavedArticle: function(article) {
-    console.log(article);
     return axios.delete("/api/saved", { data: {article: article }});
   }
 };

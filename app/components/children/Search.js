@@ -43,7 +43,7 @@ var Search = React.createClass({
 	    	<div className="search-container">
 				<div className="panel panel-default search-panel">
 					<div className="panel-heading">
-						<h3 className="panel-title">Search</h3>
+						<h3 className="panel-title"><span className="glyphicon glyphicon-search"></span> Search</h3>
 					</div>
 					<div className="panel-body">
 						<form onSubmit={this.handleSubmit}>
